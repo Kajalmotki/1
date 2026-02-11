@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, Moon, Sun, Star, Heart, Eye, Compass, ChevronRight } from 'lucide-react';
+import DailyTarotSection from '../components/Tarot/DraggableTarotCard';
 
 const zodiacSigns = [
     { name: 'Aries', symbol: '♈', dates: 'Mar 21 - Apr 19', element: 'Fire' },
@@ -104,6 +105,9 @@ const Home = () => {
                 </div>
             </motion.div>
 
+            {/* Daily Tarot Card - Drag & Drop */}
+            <DailyTarotSection />
+
             {/* Zodiac Horizontal Scroll */}
             <div>
                 <div className="flex items-center justify-between mb-3">
@@ -121,8 +125,8 @@ const Home = () => {
                             transition={{ delay: i * 0.05 }}
                             onClick={() => setSelectedSign(selectedSign === sign.name ? null : sign.name)}
                             className={`flex-shrink-0 w-20 flex flex-col items-center gap-1.5 p-3 rounded-xl border transition-all duration-300 ${selectedSign === sign.name
-                                    ? 'bg-primary/20 border-primary/40 shadow-[0_0_20px_rgba(212,175,55,0.15)]'
-                                    : 'bg-surface/40 border-white/5 hover:border-white/10'
+                                ? 'bg-primary/20 border-primary/40 shadow-[0_0_20px_rgba(212,175,55,0.15)]'
+                                : 'bg-surface/40 border-white/5 hover:border-white/10'
                                 }`}
                         >
                             <span className="text-2xl">{sign.symbol}</span>
